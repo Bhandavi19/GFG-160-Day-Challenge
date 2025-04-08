@@ -1,0 +1,28 @@
+class Solution {
+    static void rotateArr(int arr[], int d) {
+        int n = arr.length;
+        d = d % n;
+        if (d == 0) {
+            return;
+        }
+        int temp[] = new int[d];
+        int temp1[] = new int[n - d];
+        for (int i = 0; i < d; i++) {
+            temp[i] = arr[i];
+        }
+        for (int i = d; i < arr.length; i++) {
+            temp1[i - d] = arr[i];
+        }
+        int i = 0;
+        while (i < n - d) {
+            arr[i] = temp1[i];
+            i++;
+        }
+        int j = 0;
+        while (j < d) {
+            arr[i] = temp[j];
+            i++;
+            j++;
+        }
+    }
+}
